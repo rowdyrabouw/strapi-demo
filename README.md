@@ -1,5 +1,7 @@
 # Strapi restaurant demo
 
+MySQL implementation of [Strapi restaurant tutorial](https://strapi.io/documentation/3.0.0-beta.x/getting-started/quick-start-tutorial.html).
+
 - MySQL import (/docs/strapi.sql)
 - MySQL user/password: strapi/strapi (/config/database.js)
 - `yarn develop`
