@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dropdown_menus",
+  "info": {
+    "name": "DropdownMenu"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.link"
+    },
+    "pages": {
+      "collection": "page",
+      "via": "dropdown_menu"
+    }
+  }
+}

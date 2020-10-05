@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_link_links",
+  "info": {
+    "name": "Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string",
+      "required": true
+    },
+    "ExternalUrl": {
+      "type": "string"
+    },
+    "InternalUrl": {
+      "type": "string"
+    },
+    "page": {
+      "model": "page"
+    }
+  }
+}

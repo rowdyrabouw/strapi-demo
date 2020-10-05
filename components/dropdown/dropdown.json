@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_dropdown_dropdowns",
+  "info": {
+    "name": "Dropdown",
+    "icon": "angle-down"
+  },
+  "options": {},
+  "attributes": {
+    "dropdown_menu": {
+      "model": "dropdown-menu"
+    },
+    "Name": {
+      "type": "string"
+    }
+  }
+}

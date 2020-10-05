@@ -2,7 +2,7 @@
   "name": "strapi-demo",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "A Strapi demo application",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -24,7 +24,7 @@
     "mysql": "latest"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Rowdy Rabouw"
   },
   "strapi": {
     "uuid": "731d256d-94df-4f77-8fab-3aed469a11fc"
