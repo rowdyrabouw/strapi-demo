@@ -11,7 +11,7 @@
  Target Server Version : 50731
  File Encoding         : 65001
 
- Date: 29/09/2020 08:37:30
+ Date: 19/10/2020 13:11:42
 */
 
 SET NAMES utf8mb4;
@@ -66,6 +66,26 @@ INSERT INTO `categories_restaurants__restaurants_categories` VALUES (6, 3, 2);
 COMMIT;
 
 -- ----------------------------
+-- Table structure for components_dropdown_dropdowns
+-- ----------------------------
+DROP TABLE IF EXISTS `components_dropdown_dropdowns`;
+CREATE TABLE `components_dropdown_dropdowns` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `dropdown_menu` int(11) DEFAULT NULL,
+  `Name` varchar(255) DEFAULT NULL,
+  `Label` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of components_dropdown_dropdowns
+-- ----------------------------
+BEGIN;
+INSERT INTO `components_dropdown_dropdowns` VALUES (1, 1, '', NULL);
+INSERT INTO `components_dropdown_dropdowns` VALUES (2, 2, '', NULL);
+COMMIT;
+
+-- ----------------------------
 -- Table structure for components_hours_hours_of_operations
 -- ----------------------------
 DROP TABLE IF EXISTS `components_hours_hours_of_operations`;
@@ -89,6 +109,31 @@ INSERT INTO `components_hours_hours_of_operations` VALUES (5, 'Tue - Sat', '11:0
 COMMIT;
 
 -- ----------------------------
+-- Table structure for components_link_links
+-- ----------------------------
+DROP TABLE IF EXISTS `components_link_links`;
+CREATE TABLE `components_link_links` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Label` varchar(255) NOT NULL,
+  `ExternalUrl` varchar(255) DEFAULT NULL,
+  `InternalUrl` varchar(255) DEFAULT NULL,
+  `page` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of components_link_links
+-- ----------------------------
+BEGIN;
+INSERT INTO `components_link_links` VALUES (1, 'humans.txt', '/humans.txt', '', NULL);
+INSERT INTO `components_link_links` VALUES (2, 'sitemap.xml', '/sitemap.xml', '', NULL);
+INSERT INTO `components_link_links` VALUES (3, '404 page', NULL, '/404.html', NULL);
+INSERT INTO `components_link_links` VALUES (4, 'Github', 'https://github.com/rowdyrabouw/11ty-starter', NULL, NULL);
+INSERT INTO `components_link_links` VALUES (5, 'About', NULL, NULL, 1);
+INSERT INTO `components_link_links` VALUES (6, 'Home', NULL, '/', NULL);
+COMMIT;
+
+-- ----------------------------
 -- Table structure for core_store
 -- ----------------------------
 DROP TABLE IF EXISTS `core_store`;
@@ -100,7 +145,7 @@ CREATE TABLE `core_store` (
   `environment` varchar(255) DEFAULT NULL,
   `tag` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of core_store
@@ -135,6 +180,154 @@ INSERT INTO `core_store` VALUES (26, 'db_model_categories_restaurants__restauran
 INSERT INTO `core_store` VALUES (27, 'plugin_content_manager_configuration_content_types::application::category.category', '{\"uid\":\"application::category.category\",\"settings\":{\"bulkable\":true,\"filterable\":true,\"searchable\":true,\"pageSize\":10,\"mainField\":\"Name\",\"defaultSortBy\":\"Name\",\"defaultSortOrder\":\"ASC\"},\"metadatas\":{\"id\":{\"edit\":{},\"list\":{\"label\":\"Id\",\"searchable\":true,\"sortable\":true}},\"Name\":{\"edit\":{\"label\":\"Name\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true},\"list\":{\"label\":\"Name\",\"searchable\":true,\"sortable\":true}},\"restaurants\":{\"edit\":{\"label\":\"Restaurants\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true,\"mainField\":\"Name\"},\"list\":{\"label\":\"Restaurants\",\"searchable\":false,\"sortable\":false}},\"created_at\":{\"edit\":{\"label\":\"Created_at\",\"description\":\"\",\"placeholder\":\"\",\"visible\":false,\"editable\":true},\"list\":{\"label\":\"Created_at\",\"searchable\":true,\"sortable\":true}},\"updated_at\":{\"edit\":{\"label\":\"Updated_at\",\"description\":\"\",\"placeholder\":\"\",\"visible\":false,\"editable\":true},\"list\":{\"label\":\"Updated_at\",\"searchable\":true,\"sortable\":true}}},\"layouts\":{\"list\":[\"id\",\"Name\",\"created_at\",\"updated_at\"],\"editRelations\":[\"restaurants\"],\"edit\":[[{\"name\":\"Name\",\"size\":6}]]}}', 'object', '', '');
 INSERT INTO `core_store` VALUES (28, 'db_model_components_hours_hours_of_operations', '{\"day_interval\":{\"type\":\"string\",\"required\":true},\"opening_hours\":{\"type\":\"string\"},\"closing_hours\":{\"type\":\"string\"}}', 'object', NULL, NULL);
 INSERT INTO `core_store` VALUES (29, 'plugin_content_manager_configuration_components::hours.hours-of-operation', '{\"uid\":\"hours.hours-of-operation\",\"isComponent\":true,\"settings\":{\"bulkable\":true,\"filterable\":true,\"searchable\":true,\"pageSize\":10,\"mainField\":\"day_interval\",\"defaultSortBy\":\"day_interval\",\"defaultSortOrder\":\"ASC\"},\"metadatas\":{\"id\":{\"edit\":{},\"list\":{\"label\":\"Id\",\"searchable\":false,\"sortable\":false}},\"day_interval\":{\"edit\":{\"label\":\"Day (or Days)\",\"description\":\"You can type in one day or a series of days to complete this field. E.g. \\\"Tuesday\\\" or \\\"Tues - Wed\\\".\",\"placeholder\":\"\",\"visible\":true,\"editable\":true},\"list\":{\"label\":\"Day_interval\",\"searchable\":true,\"sortable\":true}},\"opening_hours\":{\"edit\":{\"label\":\"Opening Hours\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true},\"list\":{\"label\":\"Opening_hours\",\"searchable\":true,\"sortable\":true}},\"closing_hours\":{\"edit\":{\"label\":\"Closing Hours\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true},\"list\":{\"label\":\"Closing_hours\",\"searchable\":true,\"sortable\":true}}},\"layouts\":{\"list\":[\"id\",\"day_interval\",\"opening_hours\",\"closing_hours\"],\"edit\":[[{\"name\":\"day_interval\",\"size\":6}],[{\"name\":\"opening_hours\",\"size\":6},{\"name\":\"closing_hours\",\"size\":6}]],\"editRelations\":[]}}', 'object', '', '');
+INSERT INTO `core_store` VALUES (30, 'db_model_main_menus', '{\"Label\":{\"type\":\"string\",\"required\":true},\"Url\":{\"type\":\"string\"},\"created_by\":{\"model\":\"user\",\"plugin\":\"admin\"},\"updated_by\":{\"model\":\"user\",\"plugin\":\"admin\"},\"created_at\":{\"type\":\"currentTimestamp\"},\"updated_at\":{\"type\":\"currentTimestamp\"}}', 'object', NULL, NULL);
+INSERT INTO `core_store` VALUES (32, 'db_model_menus', '{\"Items\":{\"type\":\"dynamiczone\",\"components\":[\"link.link\",\"dropdown.dropdown\"]},\"pages\":{\"collection\":\"page\",\"attribute\":\"page\",\"column\":\"id\",\"isVirtual\":true},\"created_by\":{\"model\":\"user\",\"plugin\":\"admin\"},\"updated_by\":{\"model\":\"user\",\"plugin\":\"admin\"},\"created_at\":{\"type\":\"currentTimestamp\"},\"updated_at\":{\"type\":\"currentTimestamp\"}}', 'object', NULL, NULL);
+INSERT INTO `core_store` VALUES (33, 'db_model_main-menus', '{\"Label\":{\"type\":\"string\",\"required\":true},\"Url\":{\"type\":\"string\"},\"created_by\":{\"model\":\"user\",\"plugin\":\"admin\"},\"updated_by\":{\"model\":\"user\",\"plugin\":\"admin\"},\"created_at\":{\"type\":\"currentTimestamp\"},\"updated_at\":{\"type\":\"currentTimestamp\"}}', 'object', NULL, NULL);
+INSERT INTO `core_store` VALUES (35, 'db_model_pages', '{\"Title\":{\"type\":\"string\",\"required\":true},\"Text\":{\"type\":\"richtext\"},\"dropdown_menu\":{\"via\":\"pages\",\"model\":\"dropdown-menu\"},\"created_by\":{\"model\":\"user\",\"plugin\":\"admin\"},\"updated_by\":{\"model\":\"user\",\"plugin\":\"admin\"},\"created_at\":{\"type\":\"currentTimestamp\"},\"updated_at\":{\"type\":\"currentTimestamp\"}}', 'object', NULL, NULL);
+INSERT INTO `core_store` VALUES (36, 'plugin_content_manager_configuration_content_types::application::page.page', '{\"uid\":\"application::page.page\",\"settings\":{\"bulkable\":true,\"filterable\":true,\"searchable\":true,\"pageSize\":10,\"mainField\":\"Title\",\"defaultSortBy\":\"Title\",\"defaultSortOrder\":\"ASC\"},\"metadatas\":{\"id\":{\"edit\":{},\"list\":{\"label\":\"Id\",\"searchable\":true,\"sortable\":true}},\"Title\":{\"edit\":{\"label\":\"Title\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true},\"list\":{\"label\":\"Title\",\"searchable\":true,\"sortable\":true}},\"Text\":{\"edit\":{\"label\":\"Text\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true},\"list\":{\"label\":\"Text\",\"searchable\":false,\"sortable\":false}},\"dropdown_menu\":{\"edit\":{\"label\":\"Submenu\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true,\"mainField\":\"id\"},\"list\":{\"label\":\"Dropdown_menu\",\"searchable\":false,\"sortable\":false}},\"created_at\":{\"edit\":{\"label\":\"Created_at\",\"description\":\"\",\"placeholder\":\"\",\"visible\":false,\"editable\":true},\"list\":{\"label\":\"Created_at\",\"searchable\":true,\"sortable\":true}},\"updated_at\":{\"edit\":{\"label\":\"Updated_at\",\"description\":\"\",\"placeholder\":\"\",\"visible\":false,\"editable\":true},\"list\":{\"label\":\"Updated_at\",\"searchable\":true,\"sortable\":true}}},\"layouts\":{\"list\":[\"id\",\"Title\",\"created_at\",\"updated_at\"],\"edit\":[[{\"name\":\"Title\",\"size\":6}],[{\"name\":\"Text\",\"size\":12}]],\"editRelations\":[\"dropdown_menu\"]}}', 'object', '', '');
+INSERT INTO `core_store` VALUES (37, 'db_model_components_link_links', '{\"Label\":{\"type\":\"string\",\"required\":true},\"ExternalUrl\":{\"type\":\"string\"},\"InternalUrl\":{\"type\":\"string\"},\"page\":{\"model\":\"page\"}}', 'object', NULL, NULL);
+INSERT INTO `core_store` VALUES (38, 'plugin_content_manager_configuration_components::link.link', '{\"uid\":\"link.link\",\"isComponent\":true,\"settings\":{\"bulkable\":true,\"filterable\":true,\"searchable\":true,\"pageSize\":10,\"mainField\":\"Label\",\"defaultSortBy\":\"Label\",\"defaultSortOrder\":\"ASC\"},\"metadatas\":{\"id\":{\"edit\":{},\"list\":{\"label\":\"Id\",\"searchable\":false,\"sortable\":false}},\"Label\":{\"edit\":{\"label\":\"Label\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true},\"list\":{\"label\":\"Label\",\"searchable\":true,\"sortable\":true}},\"ExternalUrl\":{\"edit\":{\"label\":\"External url (opens new window)\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true},\"list\":{\"label\":\"ExternalUrl\",\"searchable\":true,\"sortable\":true}},\"InternalUrl\":{\"edit\":{\"label\":\"Internal url\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true},\"list\":{\"label\":\"InternalUrl\",\"searchable\":true,\"sortable\":true}},\"page\":{\"edit\":{\"label\":\"Page\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true,\"mainField\":\"Title\"},\"list\":{\"label\":\"Page\",\"searchable\":false,\"sortable\":false}}},\"layouts\":{\"list\":[\"id\",\"Label\",\"ExternalUrl\",\"InternalUrl\"],\"edit\":[[{\"name\":\"Label\",\"size\":6},{\"name\":\"InternalUrl\",\"size\":6}],[{\"name\":\"page\",\"size\":6},{\"name\":\"ExternalUrl\",\"size\":6}]],\"editRelations\":[]}}', 'object', '', '');
+INSERT INTO `core_store` VALUES (39, 'plugin_content_manager_configuration_content_types::application::menu.menu', '{\"uid\":\"application::menu.menu\",\"settings\":{\"bulkable\":true,\"filterable\":true,\"searchable\":true,\"pageSize\":10,\"mainField\":\"id\",\"defaultSortBy\":\"id\",\"defaultSortOrder\":\"ASC\"},\"metadatas\":{\"id\":{\"edit\":{},\"list\":{\"label\":\"Id\",\"searchable\":true,\"sortable\":true}},\"Items\":{\"edit\":{\"label\":\"Items\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true},\"list\":{\"label\":\"Items\",\"searchable\":false,\"sortable\":false}},\"pages\":{\"edit\":{\"label\":\"Pages\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true,\"mainField\":\"Title\"},\"list\":{\"label\":\"Pages\",\"searchable\":false,\"sortable\":false}},\"created_at\":{\"edit\":{\"label\":\"Created_at\",\"description\":\"\",\"placeholder\":\"\",\"visible\":false,\"editable\":true},\"list\":{\"label\":\"Created_at\",\"searchable\":true,\"sortable\":true}},\"updated_at\":{\"edit\":{\"label\":\"Updated_at\",\"description\":\"\",\"placeholder\":\"\",\"visible\":false,\"editable\":true},\"list\":{\"label\":\"Updated_at\",\"searchable\":true,\"sortable\":true}}},\"layouts\":{\"list\":[\"id\",\"created_at\",\"updated_at\"],\"edit\":[[{\"name\":\"Items\",\"size\":12}]],\"editRelations\":[\"pages\"]}}', 'object', '', '');
+INSERT INTO `core_store` VALUES (40, 'db_model_dropdown_menus', '{\"Name\":{\"type\":\"string\",\"required\":true},\"Items\":{\"type\":\"component\",\"repeatable\":true,\"component\":\"link.link\"},\"pages\":{\"collection\":\"page\",\"via\":\"dropdown_menu\",\"isVirtual\":true},\"created_by\":{\"model\":\"user\",\"plugin\":\"admin\"},\"updated_by\":{\"model\":\"user\",\"plugin\":\"admin\"},\"created_at\":{\"type\":\"currentTimestamp\"},\"updated_at\":{\"type\":\"currentTimestamp\"}}', 'object', NULL, NULL);
+INSERT INTO `core_store` VALUES (41, 'plugin_content_manager_configuration_content_types::application::dropdown-menu.dropdown-menu', '{\"uid\":\"application::dropdown-menu.dropdown-menu\",\"settings\":{\"bulkable\":true,\"filterable\":true,\"searchable\":true,\"pageSize\":10,\"mainField\":\"Name\",\"defaultSortBy\":\"Name\",\"defaultSortOrder\":\"ASC\"},\"metadatas\":{\"id\":{\"edit\":{},\"list\":{\"label\":\"Id\",\"searchable\":true,\"sortable\":true}},\"Name\":{\"edit\":{\"label\":\"Name\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true},\"list\":{\"label\":\"Name\",\"searchable\":true,\"sortable\":true}},\"Items\":{\"edit\":{\"label\":\"Items\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true},\"list\":{\"label\":\"Items\",\"searchable\":false,\"sortable\":false}},\"pages\":{\"edit\":{\"label\":\"Pages\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true,\"mainField\":\"Title\"},\"list\":{\"label\":\"Pages\",\"searchable\":false,\"sortable\":false}},\"created_at\":{\"edit\":{\"label\":\"Created_at\",\"description\":\"\",\"placeholder\":\"\",\"visible\":false,\"editable\":true},\"list\":{\"label\":\"Created_at\",\"searchable\":true,\"sortable\":true}},\"updated_at\":{\"edit\":{\"label\":\"Updated_at\",\"description\":\"\",\"placeholder\":\"\",\"visible\":false,\"editable\":true},\"list\":{\"label\":\"Updated_at\",\"searchable\":true,\"sortable\":true}}},\"layouts\":{\"list\":[\"Name\",\"created_at\",\"updated_at\"],\"edit\":[[{\"name\":\"Name\",\"size\":6}],[{\"name\":\"Items\",\"size\":12}]],\"editRelations\":[\"pages\"]}}', 'object', '', '');
+INSERT INTO `core_store` VALUES (42, 'db_model_components_dropdown_dropdowns', '{\"dropdown_menu\":{\"model\":\"dropdown-menu\"},\"Name\":{\"type\":\"string\"}}', 'object', NULL, NULL);
+INSERT INTO `core_store` VALUES (45, 'plugin_content_manager_configuration_components::dropdown.dropdown', '{\"uid\":\"dropdown.dropdown\",\"isComponent\":true,\"settings\":{\"bulkable\":true,\"filterable\":true,\"searchable\":true,\"pageSize\":10,\"mainField\":\"Name\",\"defaultSortBy\":\"Name\",\"defaultSortOrder\":\"ASC\"},\"metadatas\":{\"id\":{\"edit\":{},\"list\":{\"label\":\"Id\",\"searchable\":false,\"sortable\":false}},\"dropdown_menu\":{\"edit\":{\"label\":\"Dropdown\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true,\"mainField\":\"Name\"},\"list\":{\"label\":\"Dropdown_menu\",\"searchable\":false,\"sortable\":false}},\"Name\":{\"edit\":{\"label\":\"Name\",\"description\":\"\",\"placeholder\":\"\",\"visible\":true,\"editable\":true},\"list\":{\"label\":\"Name\",\"searchable\":true,\"sortable\":true}}},\"layouts\":{\"list\":[\"id\",\"Name\"],\"edit\":[[{\"name\":\"dropdown_menu\",\"size\":6}]],\"editRelations\":[]}}', 'object', '', '');
+INSERT INTO `core_store` VALUES (46, 'db_model_menus__pages', '{\"menu_id\":{\"type\":\"integer\"},\"page_id\":{\"type\":\"integer\"}}', 'object', NULL, NULL);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for dropdown_menus
+-- ----------------------------
+DROP TABLE IF EXISTS `dropdown_menus`;
+CREATE TABLE `dropdown_menus` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `Name` varchar(255) NOT NULL,
+  `Label` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of dropdown_menus
+-- ----------------------------
+BEGIN;
+INSERT INTO `dropdown_menus` VALUES (1, 1, 1, '2020-09-29 17:50:44', '2020-10-05 14:13:07', 'Extras', '');
+INSERT INTO `dropdown_menus` VALUES (2, 1, 1, '2020-09-29 17:51:38', '2020-10-01 16:18:24', 'Info', '');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for dropdown_menus_components
+-- ----------------------------
+DROP TABLE IF EXISTS `dropdown_menus_components`;
+CREATE TABLE `dropdown_menus_components` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `field` varchar(255) NOT NULL,
+  `order` int(10) unsigned NOT NULL,
+  `component_type` varchar(255) NOT NULL,
+  `component_id` int(11) NOT NULL,
+  `dropdown_menu_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `dropdown_menu_id_fk` (`dropdown_menu_id`),
+  CONSTRAINT `dropdown_menu_id_fk` FOREIGN KEY (`dropdown_menu_id`) REFERENCES `dropdown_menus` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of dropdown_menus_components
+-- ----------------------------
+BEGIN;
+INSERT INTO `dropdown_menus_components` VALUES (1, 'Items', 1, 'components_link_links', 1, 1);
+INSERT INTO `dropdown_menus_components` VALUES (2, 'Items', 2, 'components_link_links', 2, 1);
+INSERT INTO `dropdown_menus_components` VALUES (3, 'Items', 3, 'components_link_links', 3, 1);
+INSERT INTO `dropdown_menus_components` VALUES (4, 'Items', 1, 'components_link_links', 4, 2);
+INSERT INTO `dropdown_menus_components` VALUES (5, 'Items', 2, 'components_link_links', 5, 2);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for menus
+-- ----------------------------
+DROP TABLE IF EXISTS `menus`;
+CREATE TABLE `menus` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of menus
+-- ----------------------------
+BEGIN;
+INSERT INTO `menus` VALUES (1, 1, 1, '2020-09-29 17:51:51', '2020-10-04 13:29:55');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for menus__pages
+-- ----------------------------
+DROP TABLE IF EXISTS `menus__pages`;
+CREATE TABLE `menus__pages` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `menu_id` int(11) DEFAULT NULL,
+  `page_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of menus__pages
+-- ----------------------------
+BEGIN;
+COMMIT;
+
+-- ----------------------------
+-- Table structure for menus_components
+-- ----------------------------
+DROP TABLE IF EXISTS `menus_components`;
+CREATE TABLE `menus_components` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `field` varchar(255) NOT NULL,
+  `order` int(10) unsigned NOT NULL,
+  `component_type` varchar(255) NOT NULL,
+  `component_id` int(11) NOT NULL,
+  `menu_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `menu_id_fk` (`menu_id`),
+  CONSTRAINT `menu_id_fk` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of menus_components
+-- ----------------------------
+BEGIN;
+INSERT INTO `menus_components` VALUES (1, 'Items', 1, 'components_link_links', 6, 1);
+INSERT INTO `menus_components` VALUES (2, 'Items', 2, 'components_dropdown_dropdowns', 1, 1);
+INSERT INTO `menus_components` VALUES (3, 'Items', 3, 'components_dropdown_dropdowns', 2, 1);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for pages
+-- ----------------------------
+DROP TABLE IF EXISTS `pages`;
+CREATE TABLE `pages` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Title` varchar(255) NOT NULL,
+  `Text` longtext,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `dropdown_menu` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of pages
+-- ----------------------------
+BEGIN;
+INSERT INTO `pages` VALUES (1, 'About the author', 'Hi, I\'m Rowdy Rabouw', 1, 1, '2020-09-29 17:32:13', '2020-10-02 05:17:06', 2);
 COMMIT;
 
 -- ----------------------------
@@ -228,7 +421,7 @@ CREATE TABLE `strapi_permission` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of strapi_permission
@@ -291,6 +484,18 @@ INSERT INTO `strapi_permission` VALUES (60, 'plugins::content-manager.explorer.d
 INSERT INTO `strapi_permission` VALUES (61, 'plugins::content-manager.explorer.create', 'application::restaurant.restaurant', '[\"Name\",\"Description\",\"categories\",\"restaurant_hours.day_interval\",\"restaurant_hours.opening_hours\",\"restaurant_hours.closing_hours\"]', '[]', 1, '2020-09-05 13:03:53', '2020-09-05 13:03:53');
 INSERT INTO `strapi_permission` VALUES (62, 'plugins::content-manager.explorer.update', 'application::restaurant.restaurant', '[\"Name\",\"Description\",\"categories\",\"restaurant_hours.day_interval\",\"restaurant_hours.opening_hours\",\"restaurant_hours.closing_hours\"]', '[]', 1, '2020-09-05 13:03:53', '2020-09-05 13:03:53');
 INSERT INTO `strapi_permission` VALUES (63, 'plugins::content-manager.explorer.read', 'application::restaurant.restaurant', '[\"Name\",\"Description\",\"categories\",\"restaurant_hours.day_interval\",\"restaurant_hours.opening_hours\",\"restaurant_hours.closing_hours\"]', '[]', 1, '2020-09-05 13:03:53', '2020-09-05 13:03:53');
+INSERT INTO `strapi_permission` VALUES (75, 'plugins::content-manager.explorer.delete', 'application::page.page', NULL, '[]', 1, '2020-09-29 17:31:15', '2020-09-29 17:31:15');
+INSERT INTO `strapi_permission` VALUES (82, 'plugins::content-manager.explorer.delete', 'application::menu.menu', NULL, '[]', 1, '2020-09-29 17:41:16', '2020-09-29 17:41:16');
+INSERT INTO `strapi_permission` VALUES (86, 'plugins::content-manager.explorer.delete', 'application::dropdown-menu.dropdown-menu', NULL, '[]', 1, '2020-09-29 17:45:48', '2020-09-29 17:45:48');
+INSERT INTO `strapi_permission` VALUES (87, 'plugins::content-manager.explorer.create', 'application::dropdown-menu.dropdown-menu', '[\"Items.Label\",\"Items.ExternalUrl\",\"Items.InternalUrl\",\"Items.page\",\"pages\",\"Name\"]', '[]', 1, '2020-10-01 15:31:24', '2020-10-01 18:53:53');
+INSERT INTO `strapi_permission` VALUES (88, 'plugins::content-manager.explorer.create', 'application::page.page', '[\"Title\",\"Text\",\"dropdown_menu\"]', '[]', 1, '2020-10-01 15:31:24', '2020-10-01 15:42:34');
+INSERT INTO `strapi_permission` VALUES (89, 'plugins::content-manager.explorer.read', 'application::dropdown-menu.dropdown-menu', '[\"Items.Label\",\"Items.ExternalUrl\",\"Items.InternalUrl\",\"Items.page\",\"pages\",\"Name\"]', '[]', 1, '2020-10-01 15:31:24', '2020-10-01 18:53:53');
+INSERT INTO `strapi_permission` VALUES (90, 'plugins::content-manager.explorer.read', 'application::page.page', '[\"Title\",\"Text\",\"dropdown_menu\"]', '[]', 1, '2020-10-01 15:31:24', '2020-10-01 15:42:34');
+INSERT INTO `strapi_permission` VALUES (91, 'plugins::content-manager.explorer.update', 'application::dropdown-menu.dropdown-menu', '[\"Items.Label\",\"Items.ExternalUrl\",\"Items.InternalUrl\",\"Items.page\",\"pages\",\"Name\"]', '[]', 1, '2020-10-01 15:31:24', '2020-10-01 18:53:53');
+INSERT INTO `strapi_permission` VALUES (92, 'plugins::content-manager.explorer.update', 'application::page.page', '[\"Title\",\"Text\",\"dropdown_menu\"]', '[]', 1, '2020-10-01 15:31:24', '2020-10-01 15:42:34');
+INSERT INTO `strapi_permission` VALUES (93, 'plugins::content-manager.explorer.create', 'application::menu.menu', '[\"Items\",\"pages\"]', '[]', 1, '2020-10-04 13:15:47', '2020-10-04 13:15:47');
+INSERT INTO `strapi_permission` VALUES (94, 'plugins::content-manager.explorer.read', 'application::menu.menu', '[\"Items\",\"pages\"]', '[]', 1, '2020-10-04 13:15:47', '2020-10-04 13:15:47');
+INSERT INTO `strapi_permission` VALUES (95, 'plugins::content-manager.explorer.update', 'application::menu.menu', '[\"Items\",\"pages\"]', '[]', 1, '2020-10-04 13:15:47', '2020-10-04 13:15:47');
 COMMIT;
 
 -- ----------------------------
@@ -424,7 +629,7 @@ CREATE TABLE `users-permissions_permission` (
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=209 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of users-permissions_permission
@@ -596,6 +801,36 @@ INSERT INTO `users-permissions_permission` VALUES (163, 'application', 'category
 INSERT INTO `users-permissions_permission` VALUES (164, 'application', 'category', 'findone', 1, '', 2, NULL, NULL);
 INSERT INTO `users-permissions_permission` VALUES (165, 'application', 'category', 'update', 0, '', 1, NULL, NULL);
 INSERT INTO `users-permissions_permission` VALUES (166, 'application', 'category', 'update', 0, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (179, 'application', 'page', 'count', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (180, 'application', 'page', 'count', 0, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (181, 'application', 'page', 'create', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (182, 'application', 'page', 'create', 0, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (183, 'application', 'page', 'delete', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (184, 'application', 'page', 'delete', 0, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (185, 'application', 'page', 'find', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (186, 'application', 'page', 'find', 1, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (187, 'application', 'page', 'findone', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (188, 'application', 'page', 'findone', 1, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (189, 'application', 'page', 'update', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (190, 'application', 'page', 'update', 0, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (191, 'application', 'menu', 'delete', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (192, 'application', 'menu', 'delete', 0, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (193, 'application', 'menu', 'find', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (194, 'application', 'menu', 'find', 1, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (195, 'application', 'menu', 'update', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (196, 'application', 'menu', 'update', 0, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (197, 'application', 'dropdown-menu', 'count', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (198, 'application', 'dropdown-menu', 'count', 0, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (199, 'application', 'dropdown-menu', 'create', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (200, 'application', 'dropdown-menu', 'create', 0, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (201, 'application', 'dropdown-menu', 'delete', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (202, 'application', 'dropdown-menu', 'delete', 0, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (203, 'application', 'dropdown-menu', 'find', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (204, 'application', 'dropdown-menu', 'find', 1, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (205, 'application', 'dropdown-menu', 'findone', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (206, 'application', 'dropdown-menu', 'findone', 1, '', 2, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (207, 'application', 'dropdown-menu', 'update', 0, '', 1, NULL, NULL);
+INSERT INTO `users-permissions_permission` VALUES (208, 'application', 'dropdown-menu', 'update', 0, '', 2, NULL, NULL);
 COMMIT;
 
 -- ----------------------------
